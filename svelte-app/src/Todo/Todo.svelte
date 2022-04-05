@@ -1,11 +1,12 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy, beforeUpdate, afterUpdate } from "svelte";
 
   export let todos;
   export let todo;
   let isEditing = false;
   let updateTitle = "";
   let editBtn, deleteBtn;
+  let _LOG = false;
 
   function onEditTodo() {
     isEditing = true;
@@ -33,8 +34,21 @@
   }
 
   onMount(() => {
+    _LOG && console.log("OnMount()..");
     editBtn = document.querySelector("#edit");
     deleteBtn = document.querySelector("#delete");
+  });
+
+  onDestroy(() => {
+    _LOG && console.log("OnDestory()..");
+  });
+
+  beforeUpdate(() => {
+    _LOG && console.log("beforeUpdate()..");
+  });
+
+  afterUpdate(() => {
+    _LOG && console.log("afterUpdate()..");
   });
 </script>
 

@@ -1,9 +1,15 @@
 <script>
   import Todo from "./Todo/Index.svelte";
+  import { delayRenter } from "./lib/lifeCycle";
+
+  let done = delayRenter(3000);
 </script>
 
 <main>
-  <h1>Hello!</h1>
+  {#if $done}
+    <h1>Hello!</h1>
+  {/if}
+
   <Todo />
 </main>
 
