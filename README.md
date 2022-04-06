@@ -113,3 +113,54 @@
 - Object.entries(_객체_) as [Key, value] (key)
 - 키블록: 연결된 데이터의 값이 변경될때 마다 블록 내부의 파괴하고 다시 생성함.
   - {#key _value_ } _블록_ {/key}
+
+### 비동기 패턴
+
+```js
+    function fn(){
+        new Promise((resolve, reject) => {
+            if(err){
+                return reject(new Error('Error Message'));
+            }
+            reslove('sucess data');
+        });
+    };
+    // 프로미스 THEN 구문
+    fn()
+        .then((res) => { console.log(res); })
+        .catch((err) => { console.log(err.message); })
+        .finally(() => { console.log('done'); })
+    // ASYNC / AWAIT 
+    const asyncFn = async() => {
+        try{
+            const res = await fn();
+            console.log(res);
+        }
+        catch(err){
+            console.log(err.message);
+        }
+        finally(){
+            console.log('done');
+        }
+    }
+```
+
+- 대기(pending):  '이행' 하거나 '거부' 되지 않은 초기상태.
+- 이행(fulfilled):  연산이 성공적으로 완료 된 상태.
+- 거부(rejected): 연산이 실패한 상태.
+
+- await 블록
+
+```svelte
+    let promise = new Promise((resolve) => resolve(""))
+    {#await promise}
+        // 대기(Pending)
+    {:then res}
+        // 이행(Fulfilled)
+    {:catch err}
+        // 거부(Rejected)
+    {/await}
+    //
+    {#await 프로미스 then 데이터}
+    {/await}
+```

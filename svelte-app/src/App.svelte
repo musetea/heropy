@@ -1,16 +1,14 @@
 <script>
   // import Todo from "./Todo/Index.svelte";
-  import { delayRenter } from "./lib/lifeCycle";
-  import InputEx from "./refer/InputEx.svelte";
-  let done = delayRenter(3000);
+  // import { delayRenter } from "./lib/lifeCycle";
+  import OMDB from "./OMDB/Movies.svelte";
+  //let done = delayRenter(3000);
 </script>
 
 <main>
-  {#if $done}
-    <h1>Hello!</h1>
-  {/if}
+  <h1>Hello!</h1>
 
-  <InputEx />
+  <OMDB />
 </main>
 
 <style>
