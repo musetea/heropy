@@ -1,7 +1,7 @@
 <script>
-  import Todo from "./Todo/Index.svelte";
+  // import Todo from "./Todo/Index.svelte";
   import { delayRenter } from "./lib/lifeCycle";
-
+  import InputEx from "./refer/InputEx.svelte";
   let done = delayRenter(3000);
 </script>
 
@@ -10,7 +10,7 @@
     <h1>Hello!</h1>
   {/if}
 
-  <Todo />
+  <InputEx />
 </main>
 
 <style>
