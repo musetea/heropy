@@ -174,3 +174,20 @@
 - `capture`: 갭처링에서 핸들러 실행 (부모->자식으로 ) [on:click|capture]
 - `self`: 이벤트의 타켓과 currentTarget이 일치할 경우 이벤트 발생 [on:click|self]
 - `passive`: 이벤트 처리를 완료하지 않고도 기본 속도로 화면을 스크롤... [on:wheel|passive]
+
+### 컴포넌트
+
+- 컴포넌트 객체 (bind:this={_변수_})
+- 자식컴포넌트에 Prop 전달-> 구조분해, 전개연산자
+- 컴포넌트에 데이터 전달할때 양방향 데이터 바인딩도 가능 (bind:todos={todos})
+- `createEventDispatcher`: 커스텀이벤트 방식 (자식->부모로)
+  - (event) => event.detail : 커스텀이벤트 전달자.
+  - 자식은 on:customEvent={(event)=>{ event.detail}}
+
+- 이벤트포워딩: 자식에서 on:click => 부모에서 on:click 으로 받을 수 있음
+    -
+
+- setContext("이름", "데이터") / getContext("이름") => 자신에서 하위 컴포넌트에 전달.
+- context="module" => 컴포넌트에서 전역적인 데이터로 사용됨.  export 키워드를 통해 외부에 전달 가능.
+- $$props => {...$$props}  => 모든 프롭스 전개
+- $$restProps {...$$restProps} => 명시적인 프롭스와 암시적인 프롭스 분리 전개함.
