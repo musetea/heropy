@@ -12,7 +12,7 @@
 - No Overhead
   - 오버헤드(OverHead): 어떤처리를 위해 들어가는 간접적인 시간이나 메모리등을 의미.
 
- 3) Truly reactive(반응성)
+3)Truly reactive(반응성)
 
 - 앱의상태(데이터)의 변화가 DOM에 자동으로 반영됨.
 - Framework less VanillaJS,
@@ -185,9 +185,17 @@
   - 자식은 on:customEvent={(event)=>{ event.detail}}
 
 - 이벤트포워딩: 자식에서 on:click => 부모에서 on:click 으로 받을 수 있음
-    -
 
 - setContext("이름", "데이터") / getContext("이름") => 자신에서 하위 컴포넌트에 전달.
 - context="module" => 컴포넌트에서 전역적인 데이터로 사용됨.  export 키워드를 통해 외부에 전달 가능.
 - $$props => {...$$props}  => 모든 프롭스 전개
 - $$restProps {...$$restProps} => 명시적인 프롭스와 암시적인 프롭스 분리 전개함.
+
+### 슬롯
+
+- 컴포넌트에 태크를 전달.
+- Fallback content(대체 콘텐츠): `slot` 으로 들어오는 내용이 없는 경우 사용됨.
+- 이름있는 슬롯:  __name__: 예약어
+- 범위를가지는 슬롯: let:domain => 호출하는쪽에서 변수처럼, 보간으로 사용함.
+- 슬롯포워딩: <slot></slot> 태그를 이용해 자식으로 전달.
+- `$$slots`: 컴포넌트에 들어오는 슬롯의 유뮤표시
