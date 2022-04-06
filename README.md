@@ -107,3 +107,9 @@
 
 - bind:this={_변수_}
 - __contenteditable__: innerHTML, textContent 속성을 사용하여 편집가능 태크를 만듬. (@html)
+
+### 반복블록
+
+- Object.entries(_객체_) as [Key, value] (key)
+- 키블록: 연결된 데이터의 값이 변경될때 마다 블록 내부의 파괴하고 다시 생성함.
+  - {#key _value_ } _블록_ {/key}
