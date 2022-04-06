@@ -164,3 +164,13 @@
     {#await 프로미스 then 데이터}
     {/await}
 ```
+
+- 인라인 이벤트 핸들러 사용을 권장함
+- 다중 이벤트 핸들러 사용 가능 ( on:click={fn1} on:click={fn2})
+- 이벤트 수식어
+- `preventDefault`: 기본동작방지 [on:click|preventDefault]
+- `once`: 최초실행 후 이벤트 핸들러 삭제 [on:click|priventDefault|once]
+- `stopPropagation`: 이벤트 버블링 방지 (자식->부모로 이벤트 전달됨을 방지)  [on:click|stopProggation]
+- `capture`: 갭처링에서 핸들러 실행 (부모->자식으로 ) [on:click|capture]
+- `self`: 이벤트의 타켓과 currentTarget이 일치할 경우 이벤트 발생 [on:click|self]
+- `passive`: 이벤트 처리를 완료하지 않고도 기본 속도로 화면을 스크롤... [on:wheel|passive]
