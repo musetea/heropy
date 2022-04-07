@@ -4,13 +4,13 @@
   // import OMDB from ".//Movies.svelte";
   // let done = delayRenter(3000);
   // import AudioPlayer from "./Audio/Index.svelte";
-  import Fruits from "./refer/Fruits.svelte";
+  import Action from "./actions/Action.svelte";
 </script>
 
 <main>
   <h1>Hello!</h1>
   <hr />
-  <Fruits />
+  <Action />
 </main>
 
 <style>
