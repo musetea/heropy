@@ -1,5 +1,5 @@
 <script>
-  import { each } from "svelte/internal";
+  export let index;
 
   let text = "";
   let number = 5;
@@ -13,6 +13,7 @@
 </script>
 
 <!-- HTML  -->
+<h1>{index}</h1>
 <section>
   <h2>Text</h2>
   <input type="text" bind:value={text} />

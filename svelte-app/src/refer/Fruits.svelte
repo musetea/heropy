@@ -1,8 +1,11 @@
 <script>
   import { fruits } from "../stores/fruits";
+  export let index;
   let fruit;
 </script>
 
+<!-- HTML -->
+<h1>{index}</h1>
 <label>
   승민이꺼 과일:
   <input type="text" bind:value={fruit} />

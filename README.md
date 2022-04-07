@@ -268,3 +268,33 @@
 ```
 
 ### 액션
+
+### 컴포넌트
+
+#### 재귀호출(self)
+
+- svelte:self: 자기 자신의 컴포넌트를 재귀적으로 호출함.
+- 재귀호출은 무한루프에 빠지기 쉬우므로 반드시 반환조건을 넣어줘야 한다.
+
+#### 동적컴포넌트
+
+- <svelte:component this={} />
+- <svelte:window on:keydown={ e => key = e.key} />
+- inner...: 뷰포트의 크기
+- outer...: 브라우저 창의 크기
+
+- <svelte:head>
+    link...
+  </svelte:head>
+  -> html에서 head 태그 역활..
+  -> document.head
+- <svelte:body
+    on:mousemove={e => console.log(e.clientX)}
+    />
+  -> document.body
+- 불변성
+- <svelte:options immutable /> : 해당하는 컴포넌트의 가변성 Props를 불변성을 부여함.
+- 접근성
+- <svelte:options accessors /> :  해당하는 컴포넌트의 외부에서 접근가능
+- export 를 붙여줘야 함.
+- `immutable`, `accessors` 같이사용 가능함.
