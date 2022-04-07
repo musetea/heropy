@@ -199,3 +199,70 @@
 - 범위를가지는 슬롯: let:domain => 호출하는쪽에서 변수처럼, 보간으로 사용함.
 - 슬롯포워딩: <slot></slot> 태그를 이용해 자식으로 전달.
 - `$$slots`: 컴포넌트에 들어오는 슬롯의 유뮤표시
+
+### 스토어
+
+- $ 자동구독
+- set: 설정 스토어 객체의 내용을 설정.
+- subscribe: 구독: 스토어 객체가 변경되면, 등록된 콜백이 호출됨.
+- update: 업데이트 스토어객체의 값을 받아서 로직처리후 그 값을 리턴
+
+```js
+    writable(_초기화_, _함수_) => 구독자가 설정되면 발생.
+    const unsubscribe = store.subscribe((value) => { ... })
+    unsubscribe(): // 호출되면 구독을 취소됨.
+    store.update((value) => { return value+1  })
+    store.set(_내용_);
+    // 
+    writable(0, () => {
+        // 구독자가 1이상일때 (최초)
+        return () => {
+            // 구독자가 0 일때 
+        }
+    })
+    // 읽기전용 스토어  ($ 자동구독)
+    const data = {}
+    readable(data, (set)=> { 
+        // 구독이 처음 생겼을 때 
+        delete data; 
+        
+        return () => {
+            // 구독이 모두 취소되었을때
+        } 
+    })
+    store.subscribe()
+```
+
+- 계산된스토어(derived:파생): derived(스토어, () =>  { return ; })
+- drived([1, 2], ([$1,$2]) => return $1+$2; )
+- derived([count, double], ([count,double], set) => set(count+double)); // 방법2, 구독하는 스토어가 변경되면 매번 취소,구독 함.
+- derived(count, ($count, set)  => {setTimeout(()=> { set($count + 1)}, 1500)}, '계산중...'); // 방법3, 초기화
+- get() : 스토어의 데이터를 반환한다.
+- 커스텀 스토어
+
+```js
+    const { set, update, subscribe} = writable(0);
+        const objCount = {
+            set,
+            update,
+            subscribe,
+            increment:() => update(n => n+1),
+            decrement: () => update(n => n-1),
+            reset: () => set(0)
+        };
+```
+
+```html
+    <h1>
+        COUNT : {$objCount}
+    </h1>
+    <button on:click={()=> objCount.increment()}>
+        +
+    </button>
+    <button on:click={()=> objCount.decrement()}>
+        -
+    </button>
+    <button on:click={()=>objCount.reset()}>
+        Reset
+    </button>
+```

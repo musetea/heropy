@@ -2,14 +2,15 @@
   // import Todo from "./Todo/Index.svelte";
   // import { delayRenter } from "./lib/lifeCycle";
   // import OMDB from ".//Movies.svelte";
-  //let done = delayRenter(3000);
-  import AudioPlayer from "./Audio/Index.svelte";
+  // let done = delayRenter(3000);
+  // import AudioPlayer from "./Audio/Index.svelte";
+  import Fruits from "./refer/Fruits.svelte";
 </script>
 
 <main>
   <h1>Hello!</h1>
-
-  <AudioPlayer />
+  <hr />
+  <Fruits />
 </main>
 
 <style>
