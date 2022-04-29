@@ -298,3 +298,7 @@
 - <svelte:options accessors /> :  해당하는 컴포넌트의 외부에서 접근가능
 - export 를 붙여줘야 함.
 - `immutable`, `accessors` 같이사용 가능함.
+
+## TRELLO
+
+### roolup.js
